@@ -11,7 +11,7 @@ module.exports = {
     filename: "/js/app.js"
   },
   resolve: {
-    moduleDirectories: [__dirname + "/web/static/js", __dirname + "/node_modules/bootstrap-sass/assets/fonts", __dirname + "/node_modules/bootstrap-sass/assets/images"],
+    moduleDirectories: [__dirname + "/web/static/js"],
     alias: {
       phoenix: __dirname + "/deps/phoenix/web/static/js/phoenix.js"
     }
@@ -20,10 +20,7 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: "babel",
-      query: {
-        presets: ["es2015"]
-      }
+      loader: "babel"
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract("style", "css")
@@ -33,12 +30,15 @@ module.exports = {
         "style",
         "css!sass?includePaths[]=" + __dirname + "/node_modules"
       )
-    },
-              {test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
-              {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
-              {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
-              {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'}
-             ]
+    }, {
+      test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff'
+    }, {
+      test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'
+    }, {
+      test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'
+    }, {
+      test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'
+    }]
   },
   plugins: [
     new ExtractTextPlugin("css/app.css"),

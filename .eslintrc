@@ -12,7 +12,7 @@
     "space-before-function-paren" : [2, "always"],
     "no-else-return" : 0,
     "no-multi-spaces": 0,
-    "quotes" : 0,
+    "quotes" : [2, "single"],
     "jsx-quotes" : [2, "prefer-single"],
     "one-var" : 0
   }
