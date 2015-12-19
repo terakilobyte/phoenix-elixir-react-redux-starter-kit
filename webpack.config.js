@@ -13,7 +13,11 @@ module.exports = {
   resolve: {
     moduleDirectories: [__dirname + '/web/static/js'],
     alias: {
-      phoenix: __dirname + '/deps/phoenix/web/static/js/phoenix.js'
+      phoenix: __dirname + '/deps/phoenix/web/static/js/phoenix.js',
+      redux: __dirname + '/web/static/js/redux',
+      containers: __dirname + '/web/static/js/containers',
+      routes: __dirname + '/web/static/js/containers',
+      projects: __dirname + '/web/static/js/projects'
     }
   },
   module: {
