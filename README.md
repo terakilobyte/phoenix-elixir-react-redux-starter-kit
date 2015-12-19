@@ -1,7 +1,7 @@
 # Phoenix Elixir React Redux Starter Kit
 An amalgamation of good stuff from [here](https://github.com/matthewlehner/phoenix-webpack-example) and [here](https://github.com/davezuko/react-redux-starter-kit)
 
-I named the app Blog, but got to this point and realized it might be useful to some people.
+I named the app Blog, but got to this point and realized it might be useful as is.
 
 To start the app:
 
