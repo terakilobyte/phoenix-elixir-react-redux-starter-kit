@@ -7,7 +7,7 @@ To start the app:
 
   1. Install dependencies with `mix deps.get`
   2. Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  > This example doesn't use any database interactions.
+    > This example doesn't use any database interactions.
   3. Start Phoenix endpoint with `mix phoenix.server` or `iex -S mix phoenix.server`.
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
