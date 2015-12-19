@@ -24,6 +24,10 @@ export class HomeView extends React.Component {
           Increment
         </button>
         <button className='btn btn-default'
+                onClick={() => this.props.decrement(1)}>
+          Decrement
+        </button>
+        <button className='btn btn-default'
                 onClick={this.props.doubleAsync}>
           Double (Async)
         </button>
@@ -35,6 +39,7 @@ export class HomeView extends React.Component {
 
 HomeView.propTypes = {
   counter: React.PropTypes.number.isRequired,
+  decrement: React.PropTypes.func.isRequired,
   doubleAsync: React.PropTypes.func.isRequired,
   increment: React.PropTypes.func.isRequired
 };
