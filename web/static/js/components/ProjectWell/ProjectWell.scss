@@ -1,0 +1,23 @@
+@import 'base';
+
+.well {
+  margin: .4em .4em;
+  width: 20vh;
+  height: 20vh;
+  display: inline-block;
+  background-color: $wellBackground;
+  box-shadow: 0 5px 20px $shadow inset;
+  transition: background-color .2s linear,
+              box-shadow .1s linear,
+              transform .5s cubic-bezier(0, 1.8, 1, 1.8);
+  &:hover {
+    background-color: $wellHover;
+    box-shadow: 0 5px 40px $shadow;
+    transform: scale(1.12);
+  }
+}
+
+.well img {
+  max-height: 100%;
+  max-width: 100%;
+}

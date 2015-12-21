@@ -1,47 +1,37 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { actions as counterActions } from '../redux/modules/counter';
+import React                  from 'react';
+import { bindActionCreators } from 'redux';
+import { connect }            from 'react-redux';
 
-// We define mapStateToProps where we'd normally use
+// We define mapStateToProps and mapDispatchToProps where we'd normally use
 // the @connect decorator so the data requirements are clear upfront, but then
 // export the decorated component after the main class definition so
 // the component can be tested w/ and w/o being connected.
 // See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
 const mapStateToProps = (state) => ({
-  counter: state.counter
+  counter : state.counter,
+  routerState : state.router
+});
+const mapDispatchToProps = (dispatch) => ({
+  actions : bindActionCreators(dispatch)
 });
 export class HomeView extends React.Component {
+  static propTypes = {
+    actions  : React.PropTypes.object,
+    counter  : React.PropTypes.number
+  }
+
   render () {
     return (
-      <div className='container text-center'>
-        <h1>Welcome to the Phoenix Elixir React Redux Starter Kit</h1>
-        <h2>
-          Sample Counter:&nbsp;
-          <span>{this.props.counter}</span>
-        </h2>
-        <button className='btn btn-default'
-                onClick={() => this.props.increment(1)}>
-          Increment
-        </button>
-        <button className='btn btn-default'
-                onClick={() => this.props.decrement(1)}>
-          Decrement
-        </button>
-        <button className='btn btn-default'
-                onClick={this.props.doubleAsync}>
-          Double (Async)
-        </button>
-        <hr />
+      <div>
+        <div className='splash-image'>
+          <h1>Hello, I'm Nathan</h1>
+        </div>
+        <div className='text-center'>
+          <h5>Let's build things</h5>
+        </div>
       </div>
     );
   }
 }
 
-HomeView.propTypes = {
-  counter: React.PropTypes.number.isRequired,
-  decrement: React.PropTypes.func.isRequired,
-  doubleAsync: React.PropTypes.func.isRequired,
-  increment: React.PropTypes.func.isRequired
-};
-
-export default connect(mapStateToProps, counterActions)(HomeView);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeView);

@@ -14,10 +14,11 @@ module.exports = {
     moduleDirectories: [__dirname + '/web/static/js'],
     alias: {
       phoenix: __dirname + '/deps/phoenix/web/static/js/phoenix.js',
-      redux: __dirname + '/web/static/js/redux',
       containers: __dirname + '/web/static/js/containers',
       routes: __dirname + '/web/static/js/containers',
-      projects: __dirname + '/web/static/js/projects'
+      projects: __dirname + '/web/static/js/projects',
+      styles: __dirname + '/web/static/css',
+      components: __dirname + '/web/static/js/components'
     }
   },
   module: {
@@ -32,7 +33,7 @@ module.exports = {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract(
         'style',
-        'css!sass?includePaths[]=' + __dirname + '/node_modules'
+        'css!sass?includePaths[]=' + __dirname + '/web/static/css'
       )
     }, {
       test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff'

@@ -1,0 +1,168 @@
+@import 'base';
+
+/* Icons */
+.cross:before, .nought:before {
+                 display: block;
+                 width: 100%;
+                 height: 100%;
+                 text-align: center;
+                 font-size: 2em;
+                 line-height: 50px;
+                 animation: shake .1s,
+                 explode .05s;
+               }
+
+.cross:before {
+  content: 'X';
+}
+
+.nought:before {
+  content: 'O';
+}
+
+/* Final Status */
+.final-45 {
+  @include linear-gradient(45deg,
+                           $background 45%,
+                           $textColor 0, $textColor 55%, $background 0);
+}
+.final-135 {
+  @include linear-gradient(135deg,
+                           $background 45%,
+                           $textColor 0, $textColor 55%, $background 0);
+}
+.final-90 {
+  @include linear-gradient(90deg,
+                           $background 45%,
+                           $textColor 0, $textColor 55%, $background 0);
+}
+.final-180 {
+  @include linear-gradient(180deg,
+                           $background 45%,
+                           $textColor 0, $textColor 55%, $background 0);
+}
+
+.disable {
+  animation: explode .1s;
+}
+
+/* Boxes */
+input[type='checkbox'] {
+  display: none;
+  &:checked ~ label:before {
+    animation: scale .2s;
+  }
+}
+
+.game-board {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.game-row {
+  align-self: center;
+  height: 50px;
+  display: block;
+  &:first-child {
+    border-bottom: 3px solid $textColor;
+  }
+  &:last-child {
+    border-top: 3px solid $textColor;
+  }
+}
+
+.reset {
+  font-size: 14px;
+  display: inline-block;
+  color: $navigationLink;
+  transition: background-color 0.2s ease;
+  background-color: $darksalmon;
+  &:hover {
+    background-color: darken($darksalmon, 10%);
+    color: $navigationLinkHover;
+    cursor: pointer;
+  }
+
+  text-decoration: none;
+  padding: 10px 10px;
+}
+
+.game-tile {
+  float: left;
+  width: 50px;
+  height: 50px;
+  transition: background-color .2s ease-out;
+  position: relative;
+  &:nth-child(2) {
+    border-left: 3px solid $textColor;
+    border-right: 3px solid $textColor;
+  }
+}
+
+.active {
+  &:hover {
+    background-color: $tileHover;
+  } 
+}
+
+label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    opacity: 0;
+    background-color: $textColor;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+  }
+}
+
+@keyframes scale {
+  0% {
+    opacity: 1;
+  }
+  1% {
+    width: 200px;
+    height: 200px;
+    left: -150%;
+    top: -150%;
+  }
+  100% {
+    width: 50px;
+    height: 50px;
+    left: 0%;
+    top: 0%;
+    opacity: 0;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-2px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+}
+
+@keyframes explode {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(.1);
+  }
+  80% {
+    transform: scale(2.1);
+  }
+}
