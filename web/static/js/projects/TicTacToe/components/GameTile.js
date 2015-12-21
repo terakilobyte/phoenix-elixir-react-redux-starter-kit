@@ -1,7 +1,7 @@
 import React from 'react';
 import '../TicTacToe.scss';
 import { connect }            from 'react-redux';
-import ticTacToeActions from 'actions/tictactoe';
+import {actions as ticTacToeActions} from 'actions/tictactoe';
 
 const columns = {
   0: 'Left',
@@ -40,7 +40,7 @@ class GameTile extends React.Component {
   static propTypes = {
     row: React.PropTypes.string.isRequired,
     column: React.PropTypes.number.isRequired,
-    player_move: React.PropTypes.func.isRequired,
+    playerMove: React.PropTypes.func.isRequired,
     gameBoard: React.PropTypes.array.isRequired,
     playerTurn: React.PropTypes.bool,
     tileClick: React.PropTypes.func,
@@ -110,7 +110,7 @@ class GameTile extends React.Component {
         tile.classList.add(classes[this.props.playerSigil]);
       });
       setTimeout(() => {
-        this.props.player_move({move: this.state.tile});
+        this.props.playerMove({move: this.state.tile});
       });
     }
     this.props.tileClick(clickThis.bind(this));

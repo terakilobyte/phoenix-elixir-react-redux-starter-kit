@@ -1,5 +1,4 @@
 import React                  from 'react';
-import { bindActionCreators } from 'redux';
 import { connect }            from 'react-redux';
 
 // We define mapStateToProps and mapDispatchToProps where we'd normally use
@@ -8,16 +7,11 @@ import { connect }            from 'react-redux';
 // the component can be tested w/ and w/o being connected.
 // See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
 const mapStateToProps = (state) => ({
-  counter : state.counter,
   routerState : state.router
 });
-const mapDispatchToProps = (dispatch) => ({
-  actions : bindActionCreators(dispatch)
-});
+
 export class HomeView extends React.Component {
   static propTypes = {
-    actions  : React.PropTypes.object,
-    counter  : React.PropTypes.number
   }
 
   render () {
@@ -34,4 +28,4 @@ export class HomeView extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeView);
+export default connect(mapStateToProps)(HomeView);

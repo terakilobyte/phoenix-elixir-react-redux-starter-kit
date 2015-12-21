@@ -1,7 +1,7 @@
 import React from 'react';
 import './TicTacToe.scss';
 import { connect }            from 'react-redux';
-import ticTacToeActions from 'actions/tictactoe';
+import { actions as ticTacToeActions } from 'actions/tictactoe';
 
 import GameBoard from './components/GameBoard';
 import { throttle } from 'lodash';
@@ -15,14 +15,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-
 class TicTacToe extends React.Component {
   static propTypes = {
     playerTurn: React.PropTypes.bool,
-    computer_move: React.PropTypes.func,
+    computerMove: React.PropTypes.func,
     winner: React.PropTypes.bool,
-    reset_game: React.PropTypes.func,
-    player_move: React.PropTypes.func,
+    resetGame: React.PropTypes.func,
+    playerMove: React.PropTypes.func,
     playerSigil: React.PropTypes.string,
     init: React.PropTypes.func
 
@@ -53,7 +52,7 @@ class TicTacToe extends React.Component {
   }
 
   computerMove () {
-    this.props.computer_move();
+    this.props.computerMove();
   }
 
   handleUserClick (fun) {
@@ -64,14 +63,14 @@ class TicTacToe extends React.Component {
   }
 
   firstReset () {
-    this.props.reset_game();
+    this.props.resetGame();
     this.setState({playerSigil: ''});
   }
 
   handleReset () {
     this.handleUserClickThrottled.cancel();
     this.throttledComputerMove.cancel();
-    this.props.reset_game();
+    this.props.resetGame();
     this.props.init({playerSigil: arguments[0]});
     this.setState({gameKey: Date.now(), playerSigil: arguments[0]});
     if (arguments[0] === 'O') {

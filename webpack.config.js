@@ -18,7 +18,10 @@ module.exports = {
       routes: __dirname + '/web/static/js/containers',
       projects: __dirname + '/web/static/js/projects',
       styles: __dirname + '/web/static/css',
-      components: __dirname + '/web/static/js/components'
+      components: __dirname + '/web/static/js/components',
+      layouts: __dirname + '/web/static/js/layouts',
+      views: __dirname + '/web/static/js/views',
+      actions: __dirname + '/web/static/js/redux/modules'
     }
   },
   module: {
